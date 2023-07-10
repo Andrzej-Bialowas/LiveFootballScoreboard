@@ -7,11 +7,9 @@ class Scoreboard:
         self.matchList = []
 
     def startMatch(self, homeTeamName, awayTeamName):
-        for match in self.matchList:
-            if match.homeTeamName in [homeTeamName, awayTeamName] or match.awayTeamName in [homeTeamName, awayTeamName]:  # make a function for checking if any of the team exists
-                raise Exception("One of these teams is already playing.")
-        newMatch = Match(homeTeamName, awayTeamName)
-        self.matchList.append(newMatch)
+        if not self.__isTeamAlreadyPlaying(homeTeamName, awayTeamName):
+            newMatch = Match(homeTeamName, awayTeamName)
+            self.matchList.append(newMatch)
 
     def updateMatch(self, homeTeamName, awayTeamName, homeTeamScore, awayTeamScore):
         match = self.__findMatch(homeTeamName, awayTeamName)
@@ -30,6 +28,12 @@ class Scoreboard:
 
     def __isScoreValid(self, score):
         return isinstance(score, int) and score >= 0
+
+    def __isTeamAlreadyPlaying(self, homeTeamName, awayTeamName):
+        for match in self.matchList:
+            if match.homeTeamName in [homeTeamName, awayTeamName] or match.awayTeamName in [homeTeamName, awayTeamName]:  # make a function for checking if any of the team exists
+                raise Exception("One of these teams is already playing.")
+        return False
 
     def finishMatch(self, homeTeamName, awayTeamName):
         match = self.__findMatch(homeTeamName, awayTeamName)
