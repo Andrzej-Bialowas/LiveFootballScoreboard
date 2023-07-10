@@ -11,9 +11,9 @@ A simple Live Football Scoreboard library written in Python.
 ## Assumptions
 
 - One team can play in only one match at a time.
-- Score value have to be 0 or greater.
+- Score value has to be 0 or greater.
 - UpdateScore takes all, even illogical score changes.
-- Start match cannot be used if the one of the teams is already on the scoreboard.
+- Start match cannot be used if one of the teams is already on the scoreboard.
 
 
 ## Authors
