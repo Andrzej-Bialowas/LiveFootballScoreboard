@@ -43,5 +43,4 @@ class Scoreboard:
             for match in sortedList:
                 formattedSortedList.append(f"{match.homeTeamName} {match.homeTeamScore} - {match.awayTeamName} {match.awayTeamScore}")
             return formattedSortedList
-        else:
-            print("Scoreboard is empty.")
+

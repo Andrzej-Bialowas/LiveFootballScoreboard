@@ -42,3 +42,13 @@ class TestScoreboard(TestCase):
         scoreboard.finishMatch("Zenek", "Muniek")
         summary = scoreboard.getSummary()
         self.assertEqual(summary, None)
+
+    def test_update_match_happy_path(self):
+        scoreboard = Scoreboard()
+        scoreboard.startMatch("Jurek", "Heniek")
+        summary = scoreboard.getSummary()
+        self.assertEqual(summary, ["Jurek 0 - Heniek 0"])
+        scoreboard.updateMatch("Jurek", "Heniek", 10, 10)
+        summary = scoreboard.getSummary()
+        self.assertEqual(summary, ["Jurek 10 - Heniek 10"])
+
