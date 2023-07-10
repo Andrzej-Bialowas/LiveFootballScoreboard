@@ -21,7 +21,7 @@ class Scoreboard:
         if not self.__isScoreValid(homeTeamScore) or not self.__isScoreValid(awayTeamScore):
             raise ValueError("Wrong score")
 
-        self.updateScore(homeTeamScore, awayTeamScore)
+        match.updateScore(homeTeamScore, awayTeamScore)
 
     def __findMatch(self, homeTeamName, awayTeamName):
         for match in self.matchList:
@@ -30,3 +30,18 @@ class Scoreboard:
 
     def __isScoreValid(self, score):
         return isinstance(score, int) and score >= 0
+
+    def finishMatch(self, homeTeamName, awayTeamName):
+        match = self.__findMatch(homeTeamName, awayTeamName)
+        if match:
+            self.matchList.remove(match)
+
+    def getSummary(self):
+        if self.matchList:
+            sortedList = sorted(self.matchList, key=lambda m: (m.getAllGoals(), self.matchList.index(m)), reverse=True)
+            formattedSortedList = []
+            for match in sortedList:
+                formattedSortedList.append(f"{match.homeTeamName} {match.homeTeamScore} - {match.awayTeamName} {match.awayTeamScore}")
+            return formattedSortedList
+        else:
+            print("Scoreboard is empty.")
