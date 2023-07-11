@@ -17,14 +17,14 @@ A simple Live Football Scoreboard library written in Python.
 - Every match starts with the 0 score on both teams
 
 ## Documentation
-
+```python
 class Match(builtins.object)
  |  Match(homeTeamName, awayTeamName)
  |  
  |  Methods defined here:
  |  
  |  __init__(self, homeTeamName, awayTeamName)
- |      Initialize self.  See help(type(self)) for accurate signature.
+ |      Initialize self.
  |  
  |  getAllGoals(self)
  |      Summarizes the goal score for a single match by adding two single scores
@@ -36,13 +36,13 @@ class Match(builtins.object)
  |      :param awayTeamScore: Result of the away team to update with
  |      :return:
  |  
-
-
+```
+```python
 class Scoreboard(builtins.object)
  |  Methods defined here:
  |  
  |  __init__(self)
- |      Initialize self.  See help(type(self)) for accurate signature.
+ |      Initialize self.
  |  
  |  finishMatch(self, homeTeamName, awayTeamName)
  |      Finishes the match by removing it from the scoreboard
@@ -66,7 +66,7 @@ class Scoreboard(builtins.object)
  |      :param homeTeamScore: Score for the home team to be updated with
  |      :param awayTeamScore: Score for the away team to be updated with
  |      :return: returns True if successful
-
+```
 ## Authors
 
 - [@Andrzej-Bialowas](https://www.github.com/Andrzej-Bialowas)
